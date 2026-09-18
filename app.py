@@ -31,7 +31,6 @@ st.markdown("""
     .stAlert { border-radius: 10px !important; border: 1px solid #1e293b !important; }
     [data-testid="stDataFrame"] { border-radius: 10px; border: 1px solid #1e293b; }
     .stTextInput input, .stNumberInput input, .stSelectbox div[data-baseweb="select"] { background-color: #121826 !important; border: 1px solid #334155 !important; color: #f8fafc !important; border-radius: 8px; }
-    [data-testid="stSidebar"] { background-color: #121826 !important; border-right: 1px solid #1e293b; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -72,14 +71,14 @@ def mostrar_whitepaper():
     *   **VES (Banca Nacional):** Ideal para márgenes amplios y arbitraje flash, pero requiere cautela con el escáner bancario. Utilizar Banesco o PagoMovil espaciando operaciones.
     """)
 
-with st.sidebar:
-    st.markdown("### 🏛️ Control Central")
+# --- CABECERA PRINCIPAL SIN SIDEBAR ---
+col_titulo, col_wp = st.columns([5, 1])
+with col_titulo:
+    st.title("⚡ Terminal Quant - Agencia P2P")
+with col_wp:
+    st.markdown("<br>", unsafe_allow_html=True)
     if st.button("📚 Ver White Paper", use_container_width=True):
         mostrar_whitepaper()
-    st.markdown("---")
-    st.info("El archivo maestro con tus tácticas de mercado, siempre a un clic de distancia para alinear operaciones antes del combate.")
-
-st.title("⚡ Terminal Quant - Agencia P2P")
 st.markdown("---")
 
 # --- DATOS BANCARIOS (KYC MAKER) ---
